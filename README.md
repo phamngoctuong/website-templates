@@ -177,3 +177,5 @@
 |  168   | webtrends-free-bootstrap-responsive-web-template		 	      |[live example](https://phamngoctuong.github.io/website-templates/webtrends-free-bootstrap-responsive-web-template/)|		 	      
 |  169   | zenlike														      |[live example](https://phamngoctuong.github.io/website-templates/zenlike/)|
 |  170   | reveal														      |[live example](https://phamngoctuong.github.io/website-templates/reveal/)|														      
+|  171   | levanorestaurantbar														      |[live example](https://phamngoctuong.github.io/website-templates/levanorestaurantbar/)|			
+|  172   | fullscreenmenu														      |[live example](https://phamngoctuong.github.io/website-templates/fullscreenmenu/)|			
