@@ -1,11 +1,6 @@
 ## HTML5 Website Templates (For Begginers and Professionals)
- 
 *Click <img src="assets/star.png" width="18" height="18" align="absmiddle" title="star" /> if you like the project. pull request are highly appreciated.*
-
 ### Table of contents
-
-
-
 |Sl.No| Template Name  | Live Example |
 |-----|----------------|--------------|
 |  01  | 3-col-portfolio	                                                  |[live example](https://phamngoctuong.github.io/website-templates/3-col-portfolio/)|	                                                  
@@ -179,3 +174,4 @@
 |  170   | reveal														      |[live example](https://phamngoctuong.github.io/website-templates/reveal/)|														      
 |  171   | levanorestaurantbar														      |[live example](https://phamngoctuong.github.io/website-templates/levanorestaurantbar/)|			
 |  172   | fullscreenmenu														      |[live example](https://phamngoctuong.github.io/website-templates/fullscreenmenu/)|			
+|  173   | html-templates														      |[live example](https://phamngoctuong.github.io/website-templates/html-templates/)|		
