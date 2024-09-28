@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+	<!--<![endif]-->
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Levano Restaurant Bar - Slider Revolution</title>
+		<meta name="description" content="Slider Revolution Example" />
+		<meta name="keywords" content="fullscreen image, grid layout, flexbox grid, transition" />
+		<meta name="author" content="ThemePunch" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- LOAD JQUERY LIBRARY -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+		<!-- LOADING FONTS AND ICONS -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:700%2C400%2C300%2C500%7CNothing+You+Could+Do:400&display=swap" rel="stylesheet" property="stylesheet" media="all" type="text/css">
+		<link rel="stylesheet" type="text/css" href="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+		<link rel="stylesheet" type="text/css" href="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/fonts/font-awesome/css/font-awesome.css">
+		<!-- REVOLUTION STYLE SHEETS -->
+		<link rel="stylesheet" type="text/css" href="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/css/rs6.css">
+		<!-- REVOLUTION LAYERS STYLES -->
+		<!-- REVOLUTION JS FILES -->
+		<script type="text/javascript">
+			window.RS_MODULES = window.RS_MODULES || {};
+			window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+			window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+			window.RS_MODULES.defered = true;
+			window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+			window.RS_MODULES.type = 'compiled';
+		</script>
+		<script type="text/javascript" src="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/js/rbtools.min.js"></script>
+		<script type="text/javascript" src="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/js/rs6.min.js"></script>
+		<script type="text/javascript">
+			function setREVStartSize(e) {
+				//window.requestAnimationFrame(function() {				 
+				window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+				window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+				try {
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
+					e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+					if (e.layout === "fullscreen" || e.l === "fullscreen") newh = Math.max(e.mh, window.RSIH);
+					else {
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl)
+							if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+						e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl)
+							if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+						var nl = new Array(e.rl.length),
+							ix = 0,
+							sl;
+						e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+						for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];
+						for (var i in nl)
+							if (sl > nl[i] && nl[i] > 0) { sl = nl[i];
+								ix = i; }
+						var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
+						newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}
+					var el = document.getElementById(e.c);
+					if (el !== null && el) el.style.height = newh + "px";
+					el = document.getElementById(e.c + "_wrapper");
+					if (el !== null && el) {
+						el.style.height = newh + "px";
+						el.style.display = "block";
+					}
+				} catch (e) {
+					console.log("Failure at Presize of Slider:" + e)
+				}
+				//});
+			};
+		</script>
+	</head>
+
+	<body>
+		<!-- START Levano Restaurant Bar REVOLUTION SLIDER 6.5.9 -->
+		<p class="rs-p-wp-fix"></p>
+		<rs-module-wrap id="rev_slider_55_1_wrapper" data-alias="levanorestaurantbar" data-source="gallery" style="visibility:hidden;background:transparent;padding:0;">
+			<rs-module id="rev_slider_55_1" style="" data-version="6.5.9">
+				<rs-slides>
+					<rs-slide style="position: absolute;" data-key="rs-136" data-title="Intro" data-thumb="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/restaurant_bg_1-100x50.jpg" data-in="o:0;" data-out="a:false;">
+						<img src="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/dummy.png" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/restaurant_bg_1.jpg" data-panzoom="d:20000;e:power1.out;ss:110;se:100;" data-no-retina>
+						<!--
+							-->
+						<rs-layer id="slider-55-slide-136-layer-1" class="Restaurant-Display" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:c;y:m;yo:-50px;" data-text="s:120;l:120;fw:700;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;st:500;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:5;font-family:'Roboto';">LEVANO </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-136-layer-2" class="Restaurant-Cursive" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:c;y:m;yo:30px;" data-text="s:30;l:40;ls:2px;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;st:700;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:6;font-family:'Nothing you could do';letter-spacing:2px;">Fine Food + Drinks </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-136-layer-5" class="rev-scroll-btn" data-type="button" data-xy="x:c;y:b;yo:77px;" data-dim="w:35px;h:55px;" data-basealign="slide" data-rsp_o="off" data-rsp_bd="off" data-border="bos:solid;boc:rgba(255,255,255,1);bow:3px,3px,3px,3px;bor:23px,23px,23px,23px;" data-frame_0="y:50px;tp:600;" data-frame_1="tp:600;st:1500;sp:1500;" data-frame_999="y:50px;o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:7;font-family:'';cursor:pointer;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+							<span>
+							</span>
+						</rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-136-layer-4" class="Restaurant-ScrollDownText" data-type="text" data-color="rgba(255,255,255,1)" data-xy="x:c;y:b;yo:50px,50px,30px,30px;" data-text="s:17;l:17;ls:2px;" data-basealign="slide" data-rsp_o="off" data-rsp_bd="off" data-frame_0="y:50px;tp:600;" data-frame_1="tp:600;st:1900;sp:1000;" data-frame_999="st:w;sp:1000;auto:true;" style="z-index:8;font-family:'Roboto';letter-spacing:2px;">Scroll Down </rs-layer>
+						<!--
+-->
+					</rs-slide>
+					<rs-slide style="position: absolute;" data-key="rs-137" data-title="The Menu" data-thumb="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/restaurant_bg_2-100x50.jpg" data-anim="ms:1000;" data-in="y:100%;" data-out="a:false;">
+						<img src="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/dummy.png" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/restaurant_bg_2.jpg" data-bg="p:right center;" data-panzoom="d:30000;e:power1.out;ss:110;se:100;" data-no-retina>
+						<!--
+							-->
+						<rs-layer id="slider-55-slide-137-layer-1" class="Restaurant-Display" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:700px,500px,0,0;yo:70px,21px,174px,124px;" data-text="s:60,60,40,40;l:60,60,40,40;fw:700;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:700;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:5;font-family:'Roboto';">THE MENU </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-137-layer-2" class="Restaurant-Cursive" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:700px,500px,0,0;yo:170px,130px,250px,200px;" data-text="s:30,30,20,20;l:59,59,40,40;ls:2px;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1000;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:6;font-family:'Nothing you could do';letter-spacing:2px;">Croque-monsieur </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-137-layer-3" class="Restaurant-Description" data-type="text" data-color="rgba(255,255,255,0.50)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:700px,500px,0,0;yo:225px,185px,285px,235px;" data-text="l:30;ls:3px;fw:300;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1100;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:7;font-family:'Roboto';letter-spacing:3px;">Grilled ham and cheese sandwich </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-137-layer-4" class="Restaurant-Price" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:700px,500px,0,0;yo:275px,235px,325px,275px;" data-text="s:30,30,20,20;l:30,30,20,20;ls:3px;fw:300;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1200;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:power3.out;st:w;sp:1000;" style="z-index:8;font-family:'Roboto';letter-spacing:3px;">$ 8,90 </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-137-layer-5" class="Restaurant-Cursive" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:700px,500px,0,0;yo:360px,300px,390px,340px;" data-text="s:30,30,20,20;l:59,59,40,40;ls:2px;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1300;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:9;font-family:'Nothing you could do';letter-spacing:2px;">Deluxe Burger </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-137-layer-6" class="Restaurant-Description" data-type="text" data-color="rgba(255,255,255,0.50)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:700px,500px,0,0;yo:415px,355px,425px,375px;" data-text="l:30;ls:3px;fw:300;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1400;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:10;font-family:'Roboto';letter-spacing:3px;">Grass-fed beef served with fries </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-137-layer-7" class="Restaurant-Price" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:700px,500px,0,0;yo:465px,405px,465px,415px;" data-text="s:30,30,20,20;l:30,30,20,20;ls:3px;fw:300;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1500;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:power3.out;st:w;sp:1000;" style="z-index:11;font-family:'Roboto';letter-spacing:3px;">$ 15,90 </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-137-layer-8" class="Restaurant-Cursive" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:700px,500px,0,0;yo:550px,470px,530px,480px;" data-text="s:30,30,20,20;l:59,59,40,40;ls:2px;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1600;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:12;font-family:'Nothing you could do';letter-spacing:2px;">lasagne alla bolognese </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-137-layer-9" class="Restaurant-Description" data-type="text" data-color="rgba(255,255,255,0.50)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:700px,500px,0,0;yo:605px,525px,565px,515px;" data-text="l:30;ls:3px;fw:300;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1700;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:13;font-family:'Roboto';letter-spacing:3px;">Our classic Lasagne </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-137-layer-10" class="Restaurant-Price" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:700px,500px,0,0;yo:655px,576px,605px,555px;" data-text="s:30,30,20,20;l:30,30,20,20;ls:3px;fw:300;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1800;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:power3.out;st:w;sp:1000;" style="z-index:14;font-family:'Roboto';letter-spacing:3px;">$ 12,90 </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-137-layer-11" class="rev-btn rev-bordered" data-type="text" data-color="rgba(255,255,255,1)" data-xy="x:l,l,c,c;xo:700px,500px,0,0;yo:750px,671px,673px,622px;" data-text="s:17;l:17;fw:500;" data-actions='o:click;a:jumptoslide;slide:rs-138;' data-rsp_bd="off" data-padding="t:12;r:35;b:12;l:35;" data-border="bos:solid;boc:rgba(255,255,255,0.50);bow:2,2,2,2;" data-frame_0="sX:1.5;sY:1.5;tp:600;" data-frame_1="tp:600;e:power3.out;st:2800;sp:1500;" data-frame_999="o:0;tp:600;e:power3.out;st:w;sp:1000;" data-frame_hover="boc:#ffe081;bor:0px,0px,0px,0px;bos:solid;bow:2,2,2,2;oX:50;oY:50;e:none;" style="z-index:15;font-family:'Roboto';letter-spacing:3px;">THIRSTY TOO? </rs-layer>
+						<!--
+-->
+					</rs-slide>
+					<rs-slide style="position: absolute;" data-key="rs-138" data-title="Drinks" data-thumb="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/drink_cover-100x50.jpg" data-anim="ms:1500;" data-in="y:100%;" data-out="a:false;">
+						<img src="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/dummy.png" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/drink_cover.jpg" data-no-retina>
+						<rs-bgvideo data-video="w:100%;h:100%;nse:false;rwd:false;l:loop;ptimer:true;vfc:true;" data-mp4="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/drink.mp4"></rs-bgvideo>
+						<!--
+							-->
+						<rs-layer id="slider-55-slide-138-layer-1" class="Restaurant-Cursive" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:778px,585px,0,0;yo:350px,320px,639px,459px;" data-text="s:30,30,20,20;l:59,59,40,40;ls:2px;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1000;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:power3.out;st:w;sp:1000;" style="z-index:5;font-family:'Nothing you could do';letter-spacing:2px;">Try Our </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-138-layer-2" class="Restaurant-Display" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:780px,580px,1px,1px;y:t,t,m,m;yo:400px,380px,212px,160px;" data-text="s:60,60,40,40;l:60,60,40,40;fw:700;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1100;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:power3.out;st:w;sp:1000;" style="z-index:6;font-family:'Roboto';">PREMIUM ALES </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-138-layer-3" class="Restaurant-Price" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:780px,584px,3px,3px;yo:492px,472px,727px,555px;" data-text="s:30,30,20,20;l:30;ls:3px;fw:300;" data-frame_0="y:-100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1200;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:power3.out;st:w;sp:1000;" style="z-index:7;font-family:'Roboto';letter-spacing:3px;">From $ 2,90 </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-138-layer-4" class="Restaurant-Button rev-btn" data-type="button" data-color="rgba(255,255,255,1)" data-xy="x:l,l,c,c;xo:780px,588px,2px,2px;yo:770px,617px,779px,607px;" data-text="s:17;l:17;ls:3px;fw:500;" data-actions='o:click;a:jumptoslide;slide:rs-139;' data-rsp_bd="off" data-padding="t:12;r:35;b:12;l:35;" data-border="bos:solid;boc:rgba(255,255,255,0.50);bow:2,2,2,2;" data-frame_0="sX:1.5;sY:1.5;tp:600;" data-frame_1="tp:600;e:power3.out;st:2200;sp:1500;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" data-frame_hover="boc:#ffe081;bor:0px,0px,0px,0px;bos:solid;bow:2,2,2,2;oX:50;oY:50;e:none;" style="z-index:8;font-family:'Roboto';letter-spacing:3px;">SEE OUR OPENING TIMES </rs-layer>
+						<!--
+-->
+					</rs-slide>
+					<rs-slide style="position: absolute;" data-key="rs-139" data-title="Opening TImes" data-thumb="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/restaurant_bg_3-100x50.jpg" data-anim="ms:1000;" data-in="y:100%;" data-out="a:false;">
+						<img src="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/dummy.png" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/restaurant_bg_3.jpg" data-bg="p:left center;" data-panzoom="d:30000;e:power1.out;ss:110;se:100;" data-no-retina>
+						<!--
+							-->
+						<rs-layer id="slider-55-slide-139-layer-1" class="Restaurant-Display" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:50px,50px,0,0;yo:70px,70px,170px,170px;" data-text="s:60,60,40,40;l:60,60,40,40;fw:700;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:700;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:5;font-family:'Roboto';">OPENING TIMES </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-139-layer-2" class="Restaurant-Cursive" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:50px,50px,0,0;yo:170px,170px,257px,257px;" data-text="s:30,30,20,20;l:59,59,40,40;ls:2px;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1000;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:6;font-family:'Nothing you could do';letter-spacing:2px;">Mondays - Fridays </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-139-layer-3" class="Restaurant-Price" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:50px,50px,0,0;yo:235px,235px,295px,295px;" data-text="s:30,30,20,20;l:30;ls:3px;fw:300;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1100;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:7;font-family:'Roboto';letter-spacing:3px;">11:00 - 23:00 </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-139-layer-4" class="Restaurant-Cursive" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:50px,50px,0,0;yo:320px,320px,361px,361px;" data-text="s:30,30,20,20;l:59,59,40,40;ls:2px;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1200;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:8;font-family:'Nothing you could do';letter-spacing:2px;">Saturday </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-139-layer-5" class="Restaurant-Price" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:50px,50px,0,0;yo:385px,385px,400px,400px;" data-text="s:30,30,20,20;l:30;ls:3px;fw:300;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1300;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:9;font-family:'Roboto';letter-spacing:3px;">12:30 - 22:00 </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-139-layer-6" class="Restaurant-Cursive" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:50px,50px,0,0;yo:470px,470px,466px,466px;" data-text="s:30,30,20,20;l:59,59,40,40;ls:2px;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1400;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:10;font-family:'Nothing you could do';letter-spacing:2px;">Sundays </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-139-layer-7" class="Restaurant-Price" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:l,l,c,c;xo:50px,50px,0,0;yo:535px,535px,504px,504px;" data-text="s:30,30,20,20;l:30;ls:3px;fw:300;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1500;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:11;font-family:'Roboto';letter-spacing:3px;">CLOSED </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-139-layer-8" class="Restaurant-Button rev-btn" data-type="button" data-color="rgba(255,255,255,1)" data-xy="x:l,l,c,c;xo:50px,50px,0,0;yo:690px,630px,597px,597px;" data-text="s:17;l:17;ls:3px;fw:500;" data-actions='o:click;a:jumptoslide;slide:rs-140;' data-rsp_bd="off" data-padding="t:12;r:35;b:12;l:35;" data-border="bos:solid;boc:rgba(255,255,255,0.50);bow:2,2,2,2;" data-frame_0="sX:1.5;sY:1.5;tp:600;" data-frame_1="tp:600;e:power3.out;st:2500;sp:1500;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" data-frame_hover="boc:#ffe081;bor:0px,0px,0px,0px;bos:solid;bow:2,2,2,2;oX:50;oY:50;e:none;" style="z-index:12;font-family:'Roboto';letter-spacing:3px;">FIND US HERE </rs-layer>
+						<!--
+-->
+					</rs-slide>
+					<rs-slide style="position: absolute;" data-key="rs-140" data-title="Contact" data-thumb="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/board-100x50.jpg" data-anim="ms:1000;" data-in="y:(100%);" data-out="a:false;">
+						<img src="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/dummy.png" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/board.jpg" data-no-retina>
+						<!--
+							-->
+						<rs-layer id="slider-55-slide-140-layer-1" class="Restaurant-Display" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="xo:100px,100px,30px,30px;yo:100px,100px,120px,140px;" data-text="s:60,60,40,40;l:60,60,40,40;fw:700;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:700;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:5;font-family:'Roboto';">FIND US HERE </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-140-layer-2" class="Restaurant-Cursive" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="xo:100px,100px,30px,30px;yo:200px,180px,172px,192px;" data-text="l:40;ls:2px;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1000;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:6;font-family:'Nothing you could do';letter-spacing:2px;">Address </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-140-layer-3" class="Restaurant-Price" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="xo:250px,250px,30px,30px;yo:206px,186px,214px,234px;" data-text="ls:3px;fw:300;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1100;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:7;font-family:'Roboto';letter-spacing:3px;">Crumpy Drive 235<br /> 51105<br /> Cologne </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-140-layer-4" class="Restaurant-Cursive" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="xo:100px,100px,30px,30px;yo:320px,300px,308px,328px;" data-text="l:40;ls:2px;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1200;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:8;font-family:'Nothing you could do';letter-spacing:2px;">Phone </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-140-layer-5" class="Restaurant-Price" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="xo:250px,250px,30px,30px;yo:326px,306px,349px,369px;" data-text="ls:3px;fw:300;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1300;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:9;font-family:'Roboto';letter-spacing:3px;">0800 098765432 </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-140-layer-6" class="Restaurant-Cursive" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="xo:100px,100px,30px,30px;yo:380px,360px,391px,411px;" data-text="l:40;ls:2px;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1400;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:10;font-family:'Nothing you could do';letter-spacing:2px;">Email </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-140-layer-7" class="Restaurant-Price" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="xo:250px,250px,30px,30px;yo:386px,366px,435px,455px;" data-text="ls:3px;fw:300;" data-frame_0="y:100%;o:1;tp:600;" data-frame_0_mask="u:t;" data-frame_1="tp:600;e:power3.out;st:1500;sp:1500;" data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" data-frame_hover="c:rgba(255,255,255,0.50);oX:50;oY:50;e:power3.out;" style="z-index:11;font-family:'Roboto';letter-spacing:3px;">Info@lvrestaurant.com </rs-layer>
+						<!--
+
+							-->
+						<rs-layer id="slider-55-slide-140-layer-8" class="- intrinsic-ignore" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="xo:100px,100px,30px,30px;y:t,t,b,b;yo:500px,430px,152px,-100px;" data-text="l:22;" data-vbility="t,t,t,f" data-frame_0="x:left;o:1;tp:600;" data-frame_1="tp:600;e:power3.out;st:2500;sp:1500;" data-frame_999="o:0;tp:600;e:nothing;st:w;sp:1000;" style="z-index:12;font-family:'';"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d628.649893265494!2d7.004314796920626!3d50.93112389810982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sde!4v1434545053661" width="400" height="300" frameborder="0" style="border:0"></iframe>
+						</rs-layer>
+						<!--
+-->
+					</rs-slide>
+				</rs-slides>
+				<rs-static-layers>
+					<!--
+
+							-->
+					<rs-layer id="slider-55-slide-40-layer-2" class="rs-layer-static" data-type="image" data-xy="xo:30px;yo:30px;" data-text="l:22;" data-dim="w:['60px','60px','60px','60px'];h:['60px','60px','60px','60px'];" data-basealign="slide" data-rsp_o="off" data-rsp_bd="off" data-onslides="s:1;" data-frame_0="y:-50px;tp:600;" data-frame_1="tp:600;st:500;sp:1500;" data-frame_999="st:w;auto:true;" style="z-index:5;"><img src="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/dummy.png" class="tp-rs-img rs-lazyload" width="120" height="120" data-lazyload="https://phamngoctuong.github.io/website-templates/levanorestaurantbar/assets/restaurant_logo1.png" data-no-retina>
+					</rs-layer>
+					<!--
+
+							-->
+					<rs-layer id="slider-55-slide-40-layer-6" class="rev-burger revb-white rs-layer-static" data-type="button" data-xy="x:r;xo:30px;yo:30px;" data-dim="w:60px;h:60px;" data-actions='o:click;a:toggleclass;layer:slider-55-slide-40-layer-6;d:0;class:open;||o:click;a:togglelayer;ls:hidden;layer:slider-55-slide-40-layer-3;||o:click;a:togglelayer;ls:hidden;layer:slider-55-slide-40-layer-4;||o:click;a:togglelayer;ls:hidden;layer:slider-55-slide-40-layer-5;||o:click;a:togglelayer;ls:hidden;layer:slider-55-slide-40-layer-7;||o:click;a:togglelayer;ls:hidden;layer:slider-55-slide-40-layer-8;' data-basealign="slide" data-rsp_o="off" data-rsp_bd="off" data-onslides="s:1;" data-padding="t:22;l:14;" data-border="bos:solid;boc:rgba(255,255,255,0.25);bow:2px,2px,2px,2px;bor:50%,50%,50%,50%;" data-frame_0="y:-50px;tp:600;" data-frame_1="tp:600;st:500;sp:1500;" data-frame_999="tp:600;e:nothing;st:w;" style="z-index:6;font-family:'';cursor:pointer;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+						<span></span>
+						<span></span>
+						<span></span>
+					</rs-layer>
+					<!--
+
+							-->
+					<rs-layer id="slider-55-slide-40-layer-3" class="Restaurant-Menuitem rs-layer-static" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:r;yo:124px;" data-text="s:17;l:17;ls:2px;" data-actions='o:click;a:jumptoslide;slide:rs-136;d:100;||o:click;a:simulateclick;layer:slider-55-slide-40-layer-6;' data-basealign="slide" data-onslides="s:1;" data-triggercache="keep" data-padding="t:10;r:30;b:10;l:30;" data-frame_0="x:50px;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:a;sp:500;" data-frame_999="x:50px;o:0;tp:600;e:power2.inOut;st:a;sp:500;" data-frame_hover="c:#000;bgc:#fff;oX:50;oY:50;sp:500;e:power2.inOut;" style="z-index:7;background-color:rgba(0,0,0,1);font-family:'Roboto';cursor:pointer;letter-spacing:2px;">Welcome </rs-layer>
+					<!--
+
+							-->
+					<rs-layer id="slider-55-slide-40-layer-4" class="Restaurant-Menuitem rs-layer-static" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:r;yo:162px;" data-text="s:17;l:17;ls:2px;" data-actions='o:click;a:jumptoslide;slide:rs-137;||o:click;a:simulateclick;layer:slider-55-slide-40-layer-6;' data-basealign="slide" data-onslides="s:1;" data-triggercache="keep" data-padding="t:10;r:30;b:10;l:30;" data-frame_0="x:50px;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:a;sp:500;" data-frame_999="x:50px;o:0;tp:600;e:power2.inOut;st:a;sp:500;" data-frame_hover="c:#000;bgc:#fff;oX:50;oY:50;sp:500;e:power2.inOut;" style="z-index:8;background-color:rgba(0,0,0,1);font-family:'Roboto';cursor:pointer;letter-spacing:2px;">The Menu </rs-layer>
+					<!--
+
+							-->
+					<rs-layer id="slider-55-slide-40-layer-5" class="Restaurant-Menuitem rs-layer-static" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:r;yo:200px;" data-text="s:17;l:17;ls:2px;" data-actions='o:click;a:jumptoslide;slide:rs-138;d:100;||o:click;a:simulateclick;layer:slider-55-slide-40-layer-6;' data-basealign="slide" data-onslides="s:1;" data-triggercache="keep" data-padding="t:10;r:30;b:10;l:30;" data-frame_0="x:50px;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:a;sp:500;" data-frame_999="x:50px;o:0;tp:600;e:power2.inOut;st:a;sp:500;" data-frame_hover="c:#000;bgc:#fff;oX:50;oY:50;sp:500;e:power2.inOut;" style="z-index:9;background-color:rgba(0,0,0,1);font-family:'Roboto';cursor:pointer;letter-spacing:2px;">Drinks </rs-layer>
+					<!--
+
+							-->
+					<rs-layer id="slider-55-slide-40-layer-7" class="Restaurant-Menuitem rs-layer-static" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:r;yo:238px;" data-text="s:17;l:17;ls:2px;" data-actions='o:click;a:jumptoslide;slide:rs-139;d:100;||o:click;a:simulateclick;layer:slider-55-slide-40-layer-6;' data-basealign="slide" data-onslides="s:1;" data-triggercache="keep" data-padding="t:10;r:30;b:10;l:30;" data-frame_0="x:50px;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:a;sp:500;" data-frame_999="x:50px;o:0;tp:600;e:power2.inOut;st:a;sp:500;" data-frame_hover="c:#000;bgc:#fff;oX:50;oY:50;sp:500;e:power2.inOut;" style="z-index:10;background-color:rgba(0,0,0,1);font-family:'Roboto';cursor:pointer;letter-spacing:2px;">Opening Times </rs-layer>
+					<!--
+
+							-->
+					<rs-layer id="slider-55-slide-40-layer-8" class="Restaurant-Menuitem rs-layer-static" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:r;yo:276px;" data-text="s:17;l:17;ls:2px;" data-actions='o:click;a:jumptoslide;slide:rs-140;||o:click;a:simulateclick;layer:slider-55-slide-40-layer-6;d:0;' data-basealign="slide" data-onslides="s:1;" data-triggercache="keep" data-padding="t:10;r:30;b:10;l:30;" data-frame_0="x:50px;tp:600;" data-frame_1="tp:600;e:power2.inOut;st:a;sp:500;" data-frame_999="x:50px;o:0;tp:600;e:power2.inOut;st:a;sp:500;" data-frame_hover="c:#000;bgc:#fff;oX:50;oY:50;sp:500;e:power2.inOut;" style="z-index:11;background-color:rgba(0,0,0,1);font-family:'Roboto';cursor:pointer;letter-spacing:2px;">Contact </rs-layer>
+					<!--
+					-->
+				</rs-static-layers>
+			</rs-module>
+			<script type="text/javascript">
+			</script>
+			<script type="text/javascript">
+				if (typeof revslider_showDoubleJqueryError === "undefined") {
+					function revslider_showDoubleJqueryError(sliderID) { console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion.");
+						console.log("To fix this, you can:");
+						console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on");
+						console.log("2. Find the double jQuery.js inclusion and remove it"); return "Double Included jQuery Library"; } }
+			</script>
+		</rs-module-wrap>
+		<!-- END REVOLUTION SLIDER -->
+		<script type="text/javascript">
+			var tpj = jQuery;
+			if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+			if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+			RS_MODULES.modules["revslider551"] = {
+				once: RS_MODULES.modules["revslider551"] !== undefined ? RS_MODULES.modules["revslider551"].once : undefined,
+				init: function() {
+					window.revapi55 = window.revapi55 === undefined || window.revapi55 === null || window.revapi55.length === 0 ? document.getElementById("rev_slider_55_1") : window.revapi55;
+					if (window.revapi55 === null || window.revapi55 === undefined || window.revapi55.length == 0) { window.revapi55initTry = window.revapi55initTry === undefined ? 0 : window.revapi55initTry + 1; if (window.revapi55initTry < 20) requestAnimationFrame(function() { RS_MODULES.modules["revslider551"].init() }); return; }
+					window.revapi55 = jQuery(window.revapi55);
+					if (window.revapi55.revolution == undefined) { revslider_showDoubleJqueryError("rev_slider_55_1"); return; }
+					revapi55.revolutionInit({
+						revapi: "revapi55",
+						sliderLayout: "fullscreen",
+						visibilityLevels: "1240,1024,778,480",
+						gridwidth: "1240,1024,778,480",
+						gridheight: "868,768,960,720",
+						lazyType: "single",
+						perspectiveType: "local",
+						responsiveLevels: "1240,1024,778,480",
+						progressBar: { disableProgressBar: true },
+						navigation: {
+							mouseScrollNavigation: true,
+							onHoverStop: false,
+							touch: {
+								touchenabled: true,
+								swipe_direction: "vertical"
+							},
+							bullets: {
+								enable: true,
+								tmp: "<span class=\"tp-bullet-inner\"></span>",
+								style: "uranus",
+								hide_onmobile: true,
+								hide_under: 1024,
+								h_align: "right",
+								v_align: "center",
+								h_offset: 30,
+								v_offset: 0,
+								direction: "vertical"
+							}
+						},
+						fanim: { in : { "o": 0 },
+							out: { "a": false },
+							speed: 1000
+						},
+						viewPort: {
+							global: false,
+							globalDist: "-200px",
+							enable: true,
+							visible_area: "20%"
+						},
+						fallbacks: {
+							allowHTML5AutoPlayOnAndroid: true
+						},
+					});
+				}
+			} // End of RevInitScript
+			if (window.RS_MODULES.checkMinimal !== undefined) { window.RS_MODULES.checkMinimal(); };
+		</script>
+		<style type="text/css">
+			#rev_slider_55_1_wrapper .uranus .tp-bullet {
+				border-radius: 50%;
+				box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+				-webkit-transition: box-shadow 0.3s ease;
+				transition: box-shadow 0.3s ease;
+				background: transparent;
+				width: 15px;
+				height: 15px
+			}
+
+			#rev_slider_55_1_wrapper .uranus .tp-bullet.selected,
+			#rev_slider_55_1_wrapper .uranus .tp-bullet.rs-touchhover {
+				box-shadow: 0 0 0 2px rgba(255, 255, 255, 1);
+				border: none;
+				border-radius: 50%;
+				background: transparent
+			}
+
+			#rev_slider_55_1_wrapper .uranus .tp-bullet-inner {
+				-webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+				transition: background-color 0.3s ease, transform 0.3s ease;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				outline: none;
+				border-radius: 50%;
+				background-color: rgba(255, 255, 255, 0);
+				background-color: rgba(255, 255, 255, 0.3);
+				text-indent: -999em;
+				cursor: pointer;
+				position: absolute
+			}
+
+			#rev_slider_55_1_wrapper .uranus .tp-bullet.selected .tp-bullet-inner,
+			#rev_slider_55_1_wrapper .uranus .tp-bullet.rs-touchhover .tp-bullet-inner {
+				transform: scale(0.4);
+				-webkit-transform: scale(0.4);
+				background-color: rgba(255, 255, 255, 1)
+			}
+		</style>
+	</body>
+
+</html>

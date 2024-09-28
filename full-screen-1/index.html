@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+		<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+		<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+		<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+		<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<title>FullScreen Menu - Slider Revolution</title>
+			<meta name="description" content="Slider Revolution Example" />
+			<meta name="keywords" content="fullscreen image, grid layout, flexbox grid, transition" />
+			<meta name="author" content="ThemePunch" />
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<!-- LOAD JQUERY LIBRARY -->
+			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+			<!-- LOADING FONTS AND ICONS -->
+			<link href="https://fonts.googleapis.com/css?family=BenchNine:700%2C400%7CRoboto:500&display=swap" rel="stylesheet" property="stylesheet" media="all" type="text/css" >
+			<link rel="stylesheet" type="text/css" href="assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+			<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome/css/font-awesome.css">
+			<!-- REVOLUTION STYLE SHEETS -->
+			<link rel="stylesheet" type="text/css" href="assets/css/rs6.css">
+			<!-- REVOLUTION LAYERS STYLES -->
+						<!-- REVOLUTION JS FILES -->
+		<script type="text/javascript">
+			window.RS_MODULES = window.RS_MODULES || {};
+			window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+			window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+			window.RS_MODULES.defered = true;
+			window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+			window.RS_MODULES.type = 'compiled';
+		</script>
+					<script type="text/javascript" src="assets/js/rbtools.min.js"></script>
+							<script type="text/javascript" src="assets/js/rs6.min.js"></script>
+			<script type="text/javascript">function setREVStartSize(e){
+			//window.requestAnimationFrame(function() {				 
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;	
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;	
+				try {								
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
+					if(e.layout==="fullscreen" || e.l==="fullscreen") 						
+						newh = Math.max(e.mh,window.RSIH);					
+					else{					
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+						var nl = new Array(e.rl.length),
+							ix = 0,						
+							sl;					
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];									
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}
+					var el = document.getElementById(e.c);
+					if (el!==null && el) el.style.height = newh+"px";					
+					el = document.getElementById(e.c+"_wrapper");
+					if (el!==null && el) {
+						el.style.height = newh+"px";
+						el.style.display = "block";
+					}
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}					   
+			//});
+		  };</script>
+		</head>
+		<body>
+			<!-- START FullScreen Menu REVOLUTION SLIDER 6.5.9 --><p class="rs-p-wp-fix"></p>
+			<rs-module-wrap id="rev_slider_31_1_wrapper" data-alias="fullscreenmenu" data-source="gallery" style="visibility:hidden;background:transparent;padding:0;">
+				<rs-module id="rev_slider_31_1" style="" data-version="6.5.9">
+					<rs-slides>
+						<rs-slide style="position: absolute;" data-key="rs-77" data-title="Style Guide" data-thumb="assets/guide-100x50.jpg" data-anim="ms:1000;" data-in="y:(100%);">
+							<img src="assets/dummy.png" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="assets/guide.jpg" data-parallax="8" data-no-retina>
+<!--
+							--><rs-layer
+								id="slider-31-slide-77-layer-3" 
+								class="FullScreenMenu-Category"
+								data-type="text"
+								data-color="rgba(17,17,17,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:239px,224px,279px,249px;"
+								data-text="l:20;ls:3px;fw:700;"
+								data-basealign="slide"
+								data-padding="t:18;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:0;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								style="z-index:5;background-color:rgba(255,255,255,0.90);font-family:'BenchNine';"
+							>WEB DESIGN 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-77-layer-1" 
+								class="FullScreenMenu-Title"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:130px,130px,130px,120px;"
+								data-text="w:nowrap,nowrap,normal,normal;s:65,50,50,40;l:70,55,55,45;fw:700;"
+								data-dim="w:auto,auto,480px,360px;"
+								data-basealign="slide"
+								data-padding="t:21;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:100;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								style="z-index:6;background-color:rgba(17,17,17,0.90);font-family:'BenchNine';"
+							>THE STYLE GUIDE <span style="color:#777;">HOW TO DO SLICK DESIGN</span> 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-77-layer-4" 
+								class="FullScreenMenu-Category"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:74px,74px,74px,64px;"
+								data-text="l:20;ls:3px;fw:700;"
+								data-actions='o:click;a:scrollbelow;sp:300;e:none;'
+								data-basealign="slide"
+								data-padding="t:18;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:200;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								data-frame_hover="c:#111;bgc:rgba(255,255,255,0.90);oX:50;oY:50;sp:100;e:power1.inOut;"
+								style="z-index:7;background-color:rgba(17,17,17,0.90);font-family:'BenchNine';cursor:pointer;"
+							>VIEW MORE <i class="fa-chevron-right" style="font-size:12px;margin-left:10px;"></i> 
+							</rs-layer><!--
+-->						</rs-slide>
+						<rs-slide style="position: absolute;" data-key="rs-78" data-title="Work Equipment" data-thumb="assets/macbook-100x50.jpg" data-anim="ms:1000;" data-in="y:(100%);">
+							<img src="assets/dummy.png" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="assets/macbook.jpg" data-parallax="8" data-no-retina>
+<!--
+							--><rs-layer
+								id="slider-31-slide-78-layer-3" 
+								class="FullScreenMenu-Category"
+								data-type="text"
+								data-color="rgba(17,17,17,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:239px,224px,279px,249px;"
+								data-text="l:20;ls:3px;fw:700;"
+								data-basealign="slide"
+								data-padding="t:18;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:0;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								style="z-index:5;background-color:rgba(255,255,255,0.90);font-family:'BenchNine';"
+							>TECH 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-78-layer-1" 
+								class="FullScreenMenu-Title"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:130px,130px,130px,120px;"
+								data-text="w:nowrap,nowrap,normal,normal;s:65,50,50,40;l:70,55,55,45;fw:700;"
+								data-dim="w:auto,auto,480px,360px;"
+								data-basealign="slide"
+								data-padding="t:21;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:100;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								style="z-index:6;background-color:rgba(17,17,17,0.90);font-family:'BenchNine';"
+							>WORK EQUIPMENT <span style="color:#777;">FIRST CLASS</span> 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-78-layer-4" 
+								class="FullScreenMenu-Category"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:74px,74px,74px,64px;"
+								data-text="l:20;ls:3px;fw:700;"
+								data-actions='o:click;a:scrollbelow;sp:300;e:none;'
+								data-basealign="slide"
+								data-padding="t:18;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:200;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								data-frame_hover="c:#111;bgc:rgba(255,255,255,0.90);oX:50;oY:50;sp:100;e:power1.inOut;"
+								style="z-index:7;background-color:rgba(17,17,17,0.90);font-family:'BenchNine';cursor:pointer;"
+							>VIEW MORE <i class="fa-chevron-right" style="font-size:12px;margin-left:10px;"></i> 
+							</rs-layer><!--
+-->						</rs-slide>
+						<rs-slide style="position: absolute;" data-key="rs-79" data-title="Love Tech" data-thumb="assets/Mock-up-100x50.jpg" data-in="y:(100%);">
+							<img src="assets/dummy.png" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="assets/Mock-up.jpg" data-parallax="8" data-no-retina>
+							<rs-bgvideo 
+								data-video="w:100%;h:100%;nse:false;l:loop;ptimer:true;vfc:true;"
+								data-mp4="assets/Mock-up.mp4"
+							></rs-bgvideo>
+<!--
+							--><rs-layer
+								id="slider-31-slide-79-layer-3" 
+								class="FullScreenMenu-Category"
+								data-type="text"
+								data-color="rgba(17,17,17,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:239px,224px,279px,249px;"
+								data-text="l:20;ls:3px;fw:700;"
+								data-basealign="slide"
+								data-padding="t:18;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:0;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								style="z-index:5;background-color:rgba(255,255,255,0.90);font-family:'BenchNine';"
+							>VIDEO 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-79-layer-1" 
+								class="FullScreenMenu-Title"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:130px,130px,130px,120px;"
+								data-text="w:nowrap,nowrap,normal,normal;s:65,50,50,40;l:70,55,55,45;fw:700;"
+								data-dim="w:auto,auto,480px,360px;"
+								data-basealign="slide"
+								data-padding="t:21;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:100;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								style="z-index:6;background-color:rgba(17,17,17,0.90);font-family:'BenchNine';"
+							>LOVE TECH <span style="color:#777;">USABILITY IS ALWAYS KEY</span> 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-79-layer-4" 
+								class="FullScreenMenu-Category"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:74px,74px,74px,64px;"
+								data-text="l:20;ls:3px;fw:700;"
+								data-actions='o:click;a:scrollbelow;sp:300;e:none;'
+								data-basealign="slide"
+								data-padding="t:18;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:200;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								data-frame_hover="c:#111;bgc:rgba(255,255,255,0.90);oX:50;oY:50;sp:100;e:power1.inOut;"
+								style="z-index:7;background-color:rgba(17,17,17,0.90);font-family:'BenchNine';cursor:pointer;"
+							>VIEW MORE <i class="fa-chevron-right" style="font-size:12px;margin-left:10px;"></i> 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-79-layer-5" 
+								class="rev-btn"
+								data-type="button"
+								data-color="rgba(255,255,255,1)"
+								data-xy="x:c;y:m;"
+								data-text="s:30;l:80;fw:500;a:center;"
+								data-dim="w:80px;h:80px;"
+								data-vbility="f,f,t,t"
+								data-actions='o:click;a:playvideo;layer:backgroundvideo;'
+								data-rsp_bd="off"
+								data-padding="r:1;l:5;"
+								data-border="bor:50px,50px,50px,50px;"
+								data-frame_0="tp:600;"
+								data-frame_1="tp:600;e:power2.inOut;st:200;"
+								data-frame_999="o:0;tp:600;e:nothing;st:w;"
+								data-frame_hover="bgc:rgba(0,0,0,0.50);boc:#000;bor:50px,50px,50px,50px;bos:solid;oX:50;oY:50;sp:200;e:power1.inOut;"
+								style="z-index:8;background-color:rgba(0,0,0,0.25);font-family:'Roboto';cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"
+							><i class="fa-play"></i> 
+							</rs-layer><!--
+-->						</rs-slide>
+						<rs-slide style="position: absolute;" data-key="rs-80" data-title="Brand New Fashion" data-thumb="assets/fashion-100x50.jpg" data-anim="ms:1000;" data-in="y:(100%);">
+							<img src="assets/dummy.png" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="assets/fashion.jpg" data-parallax="8" data-no-retina>
+<!--
+							--><rs-layer
+								id="slider-31-slide-80-layer-3" 
+								class="FullScreenMenu-Category"
+								data-type="text"
+								data-color="rgba(17,17,17,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:239px,224px,279px,249px;"
+								data-text="l:20;ls:3px;fw:700;"
+								data-basealign="slide"
+								data-padding="t:18;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:0;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								style="z-index:5;background-color:rgba(255,255,255,0.90);font-family:'BenchNine';"
+							>FASHION 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-80-layer-1" 
+								class="FullScreenMenu-Title"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:130px,130px,130px,120px;"
+								data-text="w:nowrap,nowrap,normal,normal;s:65,50,50,40;l:70,55,55,45;fw:700;"
+								data-dim="w:auto,auto,480px,360px;"
+								data-basealign="slide"
+								data-padding="t:21;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:100;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								style="z-index:6;background-color:rgba(17,17,17,0.90);font-family:'BenchNine';"
+							>BRAND NEW FASHION <span style="color:#777;">GET YOUR SWAG ON</span> 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-80-layer-4" 
+								class="FullScreenMenu-Category"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:74px,74px,74px,64px;"
+								data-text="l:20;ls:3px;fw:700;"
+								data-actions='o:click;a:scrollbelow;sp:300;e:none;'
+								data-basealign="slide"
+								data-padding="t:18;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:200;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								data-frame_hover="c:#111;bgc:rgba(255,255,255,0.90);oX:50;oY:50;sp:100;e:power1.inOut;"
+								style="z-index:7;background-color:rgba(17,17,17,0.90);font-family:'BenchNine';cursor:pointer;"
+							>VIEW MORE <i class="fa-chevron-right" style="font-size:12px;margin-left:10px;"></i> 
+							</rs-layer><!--
+-->						</rs-slide>
+						<rs-slide style="position: absolute;" data-key="rs-81" data-title="Hipster Tools" data-thumb="assets/glasses-100x50.jpg" data-anim="ms:1000;" data-in="y:(100%);">
+							<img src="assets/dummy.png" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="assets/glasses.jpg" data-parallax="8" data-no-retina>
+<!--
+							--><rs-layer
+								id="slider-31-slide-81-layer-3" 
+								class="FullScreenMenu-Category"
+								data-type="text"
+								data-color="rgba(17,17,17,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:239px,224px,279px,249px;"
+								data-text="l:20;ls:3px;fw:700;"
+								data-basealign="slide"
+								data-padding="t:18;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:0;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								style="z-index:5;background-color:rgba(255,255,255,0.90);font-family:'BenchNine';"
+							>MISC 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-81-layer-1" 
+								class="FullScreenMenu-Title"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:130px,130px,130px,120px;"
+								data-text="w:nowrap,nowrap,normal,normal;s:65,50,50,40;l:70,55,55,45;fw:700;"
+								data-dim="w:auto,auto,480px,360px;"
+								data-basealign="slide"
+								data-padding="t:21;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:100;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								style="z-index:6;background-color:rgba(17,17,17,0.90);font-family:'BenchNine';"
+							>HIPSTER TOOLS <span style="color:#777;">THINGS YOU WOULD MISS</span> 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-81-layer-4" 
+								class="FullScreenMenu-Category"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="xo:100px,50px,50px,40px;y:b;yo:74px,74px,74px,64px;"
+								data-text="l:20;ls:3px;fw:700;"
+								data-actions='o:click;a:scrollbelow;sp:300;e:none;'
+								data-basealign="slide"
+								data-padding="t:18;r:30;b:16;l:30;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:200;sp:1500;"
+								data-frame_999="y:-50px;o:0;tp:600;e:power2.inOut;st:w;sp:500;"
+								data-frame_hover="c:#111;bgc:rgba(255,255,255,0.90);oX:50;oY:50;sp:100;e:power1.inOut;"
+								style="z-index:7;background-color:rgba(17,17,17,0.90);font-family:'BenchNine';cursor:pointer;"
+							>VIEW MORE <i class="fa-chevron-right" style="font-size:12px;margin-left:10px;"></i> 
+							</rs-layer><!--
+-->						</rs-slide>
+					</rs-slides>
+					<rs-static-layers class="rs-stl-visible"><!--
+							--><rs-layer
+								id="slider-31-slide-20-layer-14" 
+								class="rs-layer-static"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-xy="x:c;y:b;yo:10px,10px,5px,5px;"
+								data-text="l:30;a:center;"
+								data-dim="w:30px;h:30px;"
+								data-basealign="slide"
+								data-rsp_o="off"
+								data-rsp_bd="off"
+								data-onslides="s:1;"
+								data-frame_0="y:50px;tp:600;"
+								data-frame_1="tp:600;e:power2.inOut;st:0;"
+								data-frame_999="o:0;tp:600;e:nothing;st:w;sR:8700;"
+								style="z-index:21;font-family:'';"
+							><i class="fa-chevron-down"></i> 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-20-layer-13" 
+								class="tp-shape tp-shapewrapper rs-layer-static"
+								data-type="shape"
+								data-xy="x:c;y:b;"
+								data-text="fw:100;"
+								data-dim="w:100%;h:50px,50px,40px,40px;"
+								data-actions='o:click;a:jumptoslide;slide:next;'
+								data-basealign="slide"
+								data-rsp_o="off"
+								data-rsp_bd="off"
+								data-onslides="s:1;"
+								data-frame_0="y:bottom;o:1;tp:600;"
+								data-frame_1="tp:600;e:power2.inOut;st:0;"
+								data-frame_999="o:0;tp:600;e:nothing;st:w;sR:8700;"
+								data-frame_hover="c:#000;bgc:rgba(255,255,255,0.10);bor:0px,0px,0px,0px;bos:solid;oX:50;oY:50;sp:200;e:power1.inOut;"
+								style="z-index:22;background-color:rgba(0,0,0,0.30);cursor:pointer;"
+							> 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-20-layer-3" 
+								class="tp-shape tp-shapewrapper rs-layer-static"
+								data-type="shape"
+								data-xy="x:c;y:m;"
+								data-text="fw:500;"
+								data-dim="w:100%;h:100%;"
+								data-basealign="slide"
+								data-rsp_o="off"
+								data-rsp_bd="off"
+								data-onslides="s:1;"
+								data-triggercache="keep"
+								data-frame_0="tp:600;"
+								data-frame_1="tp:600;e:power2.inOut;st:a;sp:800;"
+								data-frame_999="o:0;tp:600;e:power3.in;st:a;sp:800;sR:8200;"
+								style="z-index:23;background-color:rgba(17,17,17,0.85);"
+							> 
+							</rs-layer><!--
+							--><rs-layer
+								id="toggledmenu" 
+								class="rev-btn rs-layer-static"
+								data-type="button"
+								data-color="rgba(255,255,255,1)"
+								data-xy="x:r;xo:100px,50px,40px,20px;yo:70px,50px,40px,20px;"
+								data-text="s:40;l:40;fw:500;a:center;"
+								data-dim="w:64px;h:65px;"
+								data-actions='o:click;a:togglelayer;ls:hidden;layer:slider-31-slide-20-layer-3;||o:click;a:togglelayer;ls:hidden;layer:slider-31-slide-20-layer-5;d:100;||o:click;a:togglelayer;ls:hidden;layer:slider-31-slide-20-layer-6;d:150;||o:click;a:togglelayer;ls:hidden;layer:slider-31-slide-20-layer-7;d:250;||o:click;a:togglelayer;ls:hidden;layer:slider-31-slide-20-layer-8;d:300;||o:click;a:togglelayer;ls:hidden;layer:slider-31-slide-20-layer-9;d:350;||o:click;a:togglelayer;ls:hidden;layer:slider-31-slide-20-layer-10;||o:click;a:togglelayer;ls:hidden;layer:slider-31-slide-20-layer-11;||o:click;a:togglelayer;ls:hidden;layer:slider-31-slide-20-layer-12;||o:click;a:toggleclass;layer:toggledmenu;class:toggled_menu;||o:click;a:togglelayer;ls:hidden;layer:slider-31-slide-20-layer-15;d:200;'
+								data-basealign="slide"
+								data-rsp_o="off"
+								data-rsp_bd="off"
+								data-onslides="s:1;"
+								data-padding="t:12;r:15;b:12;l:15;"
+								data-frame_0="tp:600;"
+								data-frame_1="tp:600;e:power2.inOut;st:0;"
+								data-frame_999="o:0;tp:600;e:nothing;st:w;sR:8700;"
+								data-frame_hover="c:#111;bgc:rgba(255,255,255,0.90);boc:#000;bor:0px,0px,0px,0px;bos:solid;oX:50;oY:50;sp:100;e:power1.inOut;"
+								style="z-index:24;background-color:rgba(17,17,17,0.90);font-family:'Roboto';cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;"
+							>
+								<div class="rs-untoggled-content"><i class="fa-navicon"></i> </div>
+								<div class="rs-toggled-content"><i class="fa-remove"></i></div>
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-20-layer-5" 
+								class="rs-layer-static"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:200px;"
+								data-text="s:40,40,30,30;l:40,40,30,30;"
+								data-actions='o:click;a:jumptoslide;slide:rs-77;||o:click;a:simulateclick;layer:toggledmenu;'
+								data-onslides="s:1;"
+								data-triggercache="keep"
+								data-frame_0="sX:1.1;sY:1.1;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:a;sp:1000;sR:500;"
+								data-frame_999="x:0;y:0;z:0;sX:0.9;sY:0.9;o:0;rX:0;rY:0;rZ:0;skX:0;skY:0;tp:600;e:power3.in;st:a;sp:500;sR:7500;"
+								data-frame_hover="c:rgba(255,255,255,0.50);oX:50;oY:50;sp:100;e:power1.inOut;"
+								style="z-index:25;font-family:'BenchNine';cursor:pointer;letter-spacing:3px;"
+							>THE STYLE GUIDE 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-20-layer-6" 
+								class="rs-layer-static"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:270px,270px,260px,260px;"
+								data-text="s:40,40,30,30;l:40,40,30,30;"
+								data-actions='o:click;a:jumptoslide;slide:rs-78;||o:click;a:simulateclick;layer:toggledmenu;'
+								data-onslides="s:1;"
+								data-triggercache="keep"
+								data-frame_0="sX:1.1;sY:1.1;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:a;sp:1000;sR:550;"
+								data-frame_999="x:0;y:0;z:0;sX:0.9;sY:0.9;o:0;rX:0;rY:0;rZ:0;skX:0;skY:0;tp:600;e:power3.in;st:a;sp:500;sR:7450;"
+								data-frame_hover="c:rgba(255,255,255,0.50);oX:50;oY:50;sp:100;e:power1.inOut;"
+								style="z-index:26;font-family:'BenchNine';cursor:pointer;letter-spacing:3px;"
+							>WORK EQUIPMENT 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-20-layer-15" 
+								class="rs-layer-static"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:340px,340px,320px,320px;"
+								data-text="s:40,40,30,30;l:40,40,30,30;"
+								data-actions='o:click;a:jumptoslide;slide:rs-79;||o:click;a:simulateclick;layer:toggledmenu;'
+								data-onslides="s:1;"
+								data-triggercache="keep"
+								data-frame_0="sX:1.1;sY:1.1;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:a;sp:1000;sR:600;"
+								data-frame_999="x:0;y:0;z:0;sX:0.9;sY:0.9;o:0;rX:0;rY:0;rZ:0;skX:0;skY:0;tp:600;e:power3.in;st:a;sp:500;sR:7400;"
+								data-frame_hover="c:rgba(255,255,255,0.50);oX:50;oY:50;sp:100;e:power1.inOut;"
+								style="z-index:27;font-family:'BenchNine';cursor:pointer;letter-spacing:3px;"
+							>LOVE TECH 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-20-layer-7" 
+								class="rs-layer-static"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="x:c;xo:1px,1px,0,0;yo:410px,410px,380px,380px;"
+								data-text="s:40,40,30,30;l:40,40,30,30;"
+								data-actions='o:click;a:jumptoslide;slide:rs-80;||o:click;a:simulateclick;layer:toggledmenu;'
+								data-onslides="s:1;"
+								data-triggercache="keep"
+								data-frame_0="sX:1.1;sY:1.1;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:a;sp:1000;sR:650;"
+								data-frame_999="x:0;y:0;z:0;sX:0.9;sY:0.9;o:0;rX:0;rY:0;rZ:0;skX:0;skY:0;tp:600;e:power3.in;st:a;sp:500;sR:7350;"
+								data-frame_hover="c:rgba(255,255,255,0.50);oX:50;oY:50;sp:100;e:power1.inOut;"
+								style="z-index:28;font-family:'BenchNine';cursor:pointer;letter-spacing:3px;"
+							>BRAND NEW FASHION 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-20-layer-8" 
+								class="rs-layer-static"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-rsp_ch="on"
+								data-xy="x:c;yo:480px,480px,440px,440px;"
+								data-text="s:40,40,30,30;l:40,40,30,30;"
+								data-actions='o:click;a:jumptoslide;slide:rs-81;||o:click;a:simulateclick;layer:toggledmenu;'
+								data-onslides="s:1;"
+								data-triggercache="keep"
+								data-frame_0="sX:1.1;sY:1.1;tp:600;"
+								data-frame_1="tp:600;e:power3.out;st:a;sp:1000;sR:700;"
+								data-frame_999="x:0;y:0;z:0;sX:0.9;sY:0.9;o:0;rX:0;rY:0;rZ:0;skX:0;skY:0;tp:600;e:power3.in;st:a;sp:500;sR:7300;"
+								data-frame_hover="c:rgba(255,255,255,0.50);oX:50;oY:50;sp:100;e:power1.inOut;"
+								style="z-index:29;font-family:'BenchNine';cursor:pointer;letter-spacing:3px;"
+							>HIPSTER TOOLS 
+							</rs-layer><!--
+							--><rs-layer
+								id="slider-31-slide-20-layer-9" 
+								class="tp-shape tp-shapewrapper rs-layer-static"
+								data-type="shape"
+								data-rsp_ch="on"
+								data-xy="x:c;y:b;yo:110px;"
+								data-dim="w:100%;h:2px;"
+								data-basealign="slide"
+								data-onslides="s:1;"
+								data-triggercache="keep"
+								data-frame_0="y:20px;tp:600;"
+								data-frame_1="tp:600;e:power4.out;st:a;sp:1000;sR:650;"
+								data-frame_999="o:0;tp:600;e:power2.out;st:a;sR:7350;"
+								style="z-index:30;background-color:rgba(255,255,255,0.15);"
+							> 
+							</rs-layer><!--
+							--><a
+								id="slider-31-slide-20-layer-10" 
+								class="rs-layer rs-layer-static"
+								href="https://www.facebook.com/themepunchofficial" target="_blank" rel="noopener"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-xy="x:c;xo:-60px,-60px,-57px,-50px;y:b;yo:50px,50px,50px,40px;"
+								data-text="s:25;a:center;"
+								data-dim="w:30px;h:30px;"
+								data-basealign="slide"
+								data-rsp_o="off"
+								data-rsp_bd="off"
+								data-onslides="s:1;"
+								data-triggercache="keep"
+								data-frame_0="sX:0.9;sY:0.9;tp:600;"
+								data-frame_1="tp:600;st:a;sp:1500;sR:500;"
+								data-frame_999="o:0;tp:600;e:nothing;st:a;sR:7000;"
+								data-frame_hover="sX:1.1;sY:1.1;oX:50;oY:50;sp:150;e:power1.inOut;"
+								style="z-index:31;font-family:'';cursor:pointer;"
+							><i class="fa-facebook-f"></i> 
+							</a><!--
+							--><a
+								id="slider-31-slide-20-layer-11" 
+								class="rs-layer rs-layer-static"
+								href="https://twitter.com/themepunch" target="_blank" rel="noopener"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-xy="x:c;y:b;yo:50px,50px,50px,40px;"
+								data-text="s:25;a:center;"
+								data-dim="w:30px;h:30px;"
+								data-basealign="slide"
+								data-rsp_o="off"
+								data-rsp_bd="off"
+								data-onslides="s:1;"
+								data-triggercache="keep"
+								data-frame_0="sX:0.9;sY:0.9;tp:600;"
+								data-frame_1="tp:600;st:a;sp:1500;sR:550;"
+								data-frame_999="o:0;tp:600;e:nothing;st:a;sR:6950;"
+								data-frame_hover="sX:1.1;sY:1.1;oX:50;oY:50;sp:150;e:power1.inOut;"
+								style="z-index:32;font-family:'';cursor:pointer;"
+							><i class="fa-twitter"></i> 
+							</a><!--
+							--><a
+								id="slider-31-slide-20-layer-12" 
+								class="rs-layer rs-layer-static"
+								href="https://plus.google.com/u/0/+ThemePunch/posts" target="_blank" rel="noopener"
+								data-type="text"
+								data-color="rgba(255,255,255,1)"
+								data-xy="x:c;xo:60px,60px,56px,50px;y:b;yo:50px,50px,50px,40px;"
+								data-text="s:25;a:center;"
+								data-dim="w:30px;h:30px;"
+								data-basealign="slide"
+								data-rsp_o="off"
+								data-rsp_bd="off"
+								data-onslides="s:1;"
+								data-triggercache="keep"
+								data-frame_0="sX:0.9;sY:0.9;tp:600;"
+								data-frame_1="tp:600;st:a;sp:1500;sR:600;"
+								data-frame_999="o:0;tp:600;e:nothing;st:a;sR:6900;"
+								data-frame_hover="sX:1.1;sY:1.1;oX:50;oY:50;sp:150;e:power1.inOut;"
+								style="z-index:33;font-family:'';cursor:pointer;"
+							><i class="fa-google-plus"></i> 
+							</a><!--
+					--></rs-static-layers>
+				</rs-module>
+				<script type="text/javascript">
+				</script>
+<script type="text/javascript">
+		if(typeof revslider_showDoubleJqueryError === "undefined") {function revslider_showDoubleJqueryError(sliderID) {console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion.");console.log("To fix this, you can:");console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on");console.log("2. Find the double jQuery.js inclusion and remove it");return "Double Included jQuery Library";}}
+</script>
+			</rs-module-wrap>
+			<!-- END REVOLUTION SLIDER -->
+				<script type="text/javascript">
+					var	tpj = jQuery;
+					if(window.RS_MODULES === undefined) window.RS_MODULES = {};
+					if(RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+					RS_MODULES.modules["revslider311"] = {once: RS_MODULES.modules["revslider311"]!==undefined ? RS_MODULES.modules["revslider311"].once : undefined, init:function() {
+						window.revapi31 = window.revapi31===undefined || window.revapi31===null || window.revapi31.length===0  ? document.getElementById("rev_slider_31_1") : window.revapi31;
+						if(window.revapi31 === null || window.revapi31 === undefined || window.revapi31.length==0) { window.revapi31initTry = window.revapi31initTry ===undefined ? 0 : window.revapi31initTry+1; if (window.revapi31initTry<20) requestAnimationFrame(function() {RS_MODULES.modules["revslider311"].init()}); return;}
+						window.revapi31 = jQuery(window.revapi31);
+						if(window.revapi31.revolution==undefined){ revslider_showDoubleJqueryError("rev_slider_31_1"); return;}
+						revapi31.revolutionInit({
+								revapi:"revapi31",
+								sliderLayout:"fullscreen",
+								visibilityLevels:"1240,1024,778,480",
+								gridwidth:"1240,1024,778,480",
+								gridheight:"868,768,960,720",
+								lazyType:"smart",
+								perspectiveType:"local",
+								responsiveLevels:"1240,1024,778,480",
+								fullScreenOffset:"60px",
+								progressBar:{disableProgressBar:true},
+								navigation: {
+									mouseScrollNavigation:false,
+									onHoverStop:false,
+									bullets: {
+										enable:true,
+										tmp:"",
+										style:"hermes",
+										h_align:"right",
+										v_align:"center",
+										h_offset:20,
+										v_offset:0,
+										direction:"vertical"
+									}
+								},
+								parallax: {
+									levels:[5,10,15,20,25,30,35,40,45,46,47,48,49,50,51,55],
+									type:"scroll",
+									origo:"slidercenter"
+								},
+								fanim: {
+									in:{"o":0},
+									out:{"a":false},
+									speed:500
+								},
+								viewPort: {
+									global:false,
+									globalDist:"-200px",
+									enable:false,
+									visible_area:"20%"
+								},
+								fallbacks: {
+									allowHTML5AutoPlayOnAndroid:true
+								},
+						});
+							var delaytimer,
+    blurStart = 0,
+    blurEnd = 10,
+    blurElement = {a:blurStart}; //start the blur at 0 pixels
+function applyBlur()
+{
+    punchgs.TweenLite.set(revapi31.find('rs-slide'), {webkitFilter:"blur(" + blurElement.a + "px)",filter:"blur(" + blurElement.a + "px)"});  
+};
+jQuery('body').on('click','#toggledmenu',function() {
+  clearTimeout(delaytimer);
+  var btn = jQuery(this);
+ delaytimer = setTimeout(function() {
+    if (btn.hasClass('toggled_menu'))
+       punchgs.TweenLite.to(blurElement, 0.5, {a:blurEnd, onUpdate:applyBlur});
+    else
+ 	   punchgs.TweenLite.to(blurElement, 0.5, {a:blurStart, onUpdate:applyBlur});    
+  },50);
+});
+					}} // End of RevInitScript
+					if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
+				</script>
+<style type="text/css">#rev_slider_31_1_wrapper .hermes.tp-bullets{}#rev_slider_31_1_wrapper .hermes .tp-bullet{overflow:hidden; border-radius:50%; width:16px; height:16px; background-color:rgba(0,0,0,0); box-shadow:inset 0 0 0 2px #ffffff; -webkit-transition:background 0.3s ease; transition:background 0.3s ease; position:absolute}#rev_slider_31_1_wrapper .hermes .tp-bullet.rs-touchhover{background-color:rgba(0,0,0,0.21)}#rev_slider_31_1_wrapper .hermes .tp-bullet:after{content:' '; position:absolute; bottom:0; height:0; left:0; width:100%; background-color:#ffffff; box-shadow:0 0 1px #ffffff; -webkit-transition:height 0.3s ease; transition:height 0.3s ease}#rev_slider_31_1_wrapper .hermes .tp-bullet.selected:after{height:100%}</style>
+		</body>
+				</html>
+		
