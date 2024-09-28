@@ -18,4 +18,5 @@
 |  13  | room-1              | [live example](https://phamngoctuong.github.io/website-templates/room-1/)             |		
 |  14  | room-1	             | [live example](https://phamngoctuong.github.io/website-templates/room-2/)             |	      
 |  15  | room-3				 | [live example](https://phamngoctuong.github.io/website-templates/room-3/)             |								      
-|  16  | wedding			 | [live example](https://phamngoctuong.github.io/website-templates/wedding/)            |				      					
+|  16  | room-4				 | [live example](https://phamngoctuong.github.io/website-templates/room-4/)             |	
+|  17  | wedding			 | [live example](https://phamngoctuong.github.io/website-templates/wedding/)            |				      					
