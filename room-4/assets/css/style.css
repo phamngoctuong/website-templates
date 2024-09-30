@@ -2853,8 +2853,8 @@ textarea.is-invalid {
 }
 .th-btn.btn-mask {
   border-radius: 0;
-  -webkit-mask-image: url(../img/theme-img/btn-shape.png);
-          mask-image: url(../img/theme-img/btn-shape.png);
+  -webkit-mask-image: url('./../img/theme-img/btn-shape.png');
+          mask-image: url('./../img/theme-img/btn-shape.png');
   -webkit-mask-size: 100% 100%;
           mask-size: 100% 100%;
   background: var(--theme-color2);
