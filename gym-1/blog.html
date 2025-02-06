@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+  <script src="include/header.js"></script>
+</head>
+<body>
+  <script src="include/head.js"></script>
+  <div class="breadcumb-wrapper " data-bg-src="assets/img/bg/breadcumb-bg.jpg">
+    <div class="container">
+      <div class="breadcumb-content">
+        <h1 class="breadcumb-title">Latest Blog Post</h1>
+        <ul class="breadcumb-menu">
+          <li><a href="index.html">Home</a></li>
+          <li>Latest Blog Post</li>
+        </ul>
+      </div>
+    </div>
+  </div><!--==============================
+Blog Area
+==============================-->
+  <section class="th-blog-wrapper space-top space-extra-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-xxl-8 col-lg-7">
+          <script type="text/javascript">
+            blog.forEach((element, index, array) => {
+              document.write(` 
+                    <div class="th-blog blog-single has-post-thumbnail">
+                        <div class="blog-img">
+                            <a href="${element.id}"><img src="${element.image}" alt="Blog Image"></a>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <a class="author" href="#"><i class="fal fa-user"></i>By CODE DIGI LAB</a>
+                                <a href="#"><i class="fal fa-clock"></i>12 Jan, 2024</a>
+                                <a href="#"><img src="assets/img/icon/cat_1.svg" alt="icon"> Digital Marketing</a>
+                            </div>
+                            <h2 class="blog-title"><a href="${element.id}">${element.title}</a>
+                            </h2>
+                            <p class="blog-text">Uniquely pursue emerging experiences before liemerging content. Efficiently underwhelm customer directed total linkage after B2C synergy. Dynamically simplify superior human capital whereas efficient infrastructures generate business web-readiness after wireless outsourcing.</p>
+                            <a href="${element.id}" class="th-btn">Read More<i class="far fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                    `);
+            });
+          </script>
+          <div class="th-pagination ">
+            <ul>
+              <li><a href="blog.html">1</a></li>
+              <li><a href="blog.html">2</a></li>
+              <li><a href="blog.html">3</a></li>
+              <li><a href="blog.html"><i class="far fa-arrow-right"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <script src="include/category.js"></script>
+      </div>
+    </div>
+  </section>
+  <script src="include/footer.js"></script>
+</body>
+</html>
